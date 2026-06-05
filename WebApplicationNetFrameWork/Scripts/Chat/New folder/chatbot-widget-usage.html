@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Widget - Complete Merged Version</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .demo-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .demo-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .demo-btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .demo-btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .demo-btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .demo-btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .theme-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .theme-btn {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .theme-btn.active {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-card h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .highlight strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="demo-section">
+            <h1 class="demo-title">🤖 Chatbot Widget - Complete Merged Version</h1>
+            <p class="demo-description">
+                This is a demonstration of the complete, reusable, framework-agnostic chatbot widget 
+                that combines HTML, CSS, and JavaScript into a single file. The widget is embedded on 
+                this page and ready to use. Click the chat button in the bottom-right corner to start chatting!
+            </p>
+            <div class="highlight">
+                <strong>✨ What's New:</strong> The HTML, CSS, and JavaScript are now merged into a single 
+                <code>chatbot-widget-complete.js</code> file for easier distribution and integration!
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="demo-section">
+            <h2 class="demo-title">🎯 Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📦 Single File Distribution</h4>
+                    <p>All HTML, CSS, and JavaScript merged into one complete file for easy deployment.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>💬 REST API Integration</h4>
+                    <p>Communicates via REST API endpoints, independent of backend service layer.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📱 Responsive Design</h4>
+                    <p>Works seamlessly on desktop, tablet, and mobile devices.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎨 Theme-Agnostic</h4>
+                    <p>Customize colors and styling via CSS custom properties.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ No Dependencies</h4>
+                    <p>Pure Vanilla JavaScript - no jQuery or other libraries required.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>💡 Smart Suggestions</h4>
+                    <p>Displays suggested responses for quick user interactions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration Section -->
+        <div class="demo-section">
+            <h2 class="demo-title">⚙️ Configuration</h2>
+
+            <h3>Theme Selection</h3>
+            <div class="theme-selector">
+                <button class="theme-btn active" data-theme="light">☀️ Light Theme</button>
+                <button class="theme-btn" data-theme="dark">🌙 Dark Theme</button>
+            </div>
+
+            <h3>Position Selection</h3>
+            <div class="button-group">
+                <button class="demo-btn demo-btn-secondary" onclick="relocateWidget('bottom-right')">Bottom Right</button>
+                <button class="demo-btn demo-btn-secondary" onclick="relocateWidget('bottom-left')">Bottom Left</button>
+                <button class="demo-btn demo-btn-secondary" onclick="relocateWidget('top-right')">Top Right</button>
+                <button class="demo-btn demo-btn-secondary" onclick="relocateWidget('top-left')">Top Left</button>
+            </div>
+
+            <h3>Widget Controls</h3>
+            <div class="button-group">
+                <button class="demo-btn demo-btn-primary" onclick="openWidget()">Open Widget</button>
+                <button class="demo-btn demo-btn-primary" onclick="closeWidget()">Close Widget</button>
+                <button class="demo-btn demo-btn-secondary" onclick="clearMessages()">Clear Messages</button>
+                <button class="demo-btn demo-btn-secondary" onclick="resetWidget()">Reset Widget</button>
+            </div>
+        </div>
+
+        <!-- Integration Guide -->
+        <div class="demo-section">
+            <h2 class="demo-title">📖 Integration Guide</h2>
+
+            <h3>Basic Integration</h3>
+            <p>To integrate the chatbot widget into any HTML page, simply add one script tag:</p>
+            <div class="code-block">
+&lt;script src="/Scripts/Chat/chatbot-widget-complete.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  ChatBotWidget.init({
+    apiEndpoint: '/api/chatbot',
+    position: 'bottom-right',
+    theme: 'light'
+  });
+&lt;/script&gt;
+            </div>
+
+            <h3>Advanced Configuration</h3>
+            <p>Customize the widget with additional options:</p>
+            <div class="code-block">
+ChatBotWidget.init({
+  apiEndpoint: '/api/chatbot',
+  position: 'bottom-right',
+  theme: 'light',
+  title: 'Chat Assistant',
+  subtitle: 'How can we help?',
+  placeholder: 'Type your message...',
+  colors: {
+    primary: '#007bff',
+    secondary: '#6c757d',
+    background: '#ffffff',
+    text: '#333333',
+    botMessage: '#f0f0f0',
+    userMessage: '#007bff'
+  }
+});
+            </div>
+
+            <h3>ASP.NET WebForms Integration</h3>
+            <p>Add to your master page (.Master):</p>
+            <div class="code-block">
+&lt;!-- Before closing &lt;/body&gt; tag --&gt;
+&lt;script src="&lt;%= ResolveUrl("~/Scripts/Chat/chatbot-widget-complete.js") %&gt;"&gt;&lt;/script&gt;
+&lt;script&gt;
+  ChatBotWidget.init({
+    apiEndpoint: '/api/chatbot'
+  });
+&lt;/script&gt;
+            </div>
+
+            <h3>ASP.NET MVC Integration</h3>
+            <p>Add to your layout file (_Layout.cshtml):</p>
+            <div class="code-block">
+&lt;script src="~/Scripts/Chat/chatbot-widget-complete.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  ChatBotWidget.init({
+    apiEndpoint: '@Url.Action("Index", "ChatBot")'
+  });
+&lt;/script&gt;
+            </div>
+
+            <h3>ASP.NET Core Integration</h3>
+            <p>Add to your layout file (_Layout.cshtml):</p>
+            <div class="code-block">
+&lt;script src="~/js/chat/chatbot-widget-complete.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  ChatBotWidget.init({
+    apiEndpoint: '/api/chatbot'
+  });
+&lt;/script&gt;
+            </div>
+        </div>
+
+        <!-- API Documentation -->
+        <div class="demo-section">
+            <h2 class="demo-title">🔌 API Methods</h2>
+
+            <h3>Public Methods</h3>
+            <div class="code-block">
+// Open the widget
+ChatBotWidget.open();
+
+// Close the widget
+ChatBotWidget.close();
+
+// Toggle widget open/closed
+ChatBotWidget.toggle();
+
+// Clear all messages
+ChatBotWidget.clearMessages();
+
+// Destroy and remove the widget
+ChatBotWidget.destroy();
+
+// Re-initialize with new config
+ChatBotWidget.init({ ... });
+            </div>
+
+            <h3>Expected API Endpoints</h3>
+            <p>Your backend should implement these endpoints:</p>
+
+            <h4>POST /api/chatbot/send</h4>
+            <p>Send a message to the chatbot and receive a response.</p>
+            <div class="code-block">
+Request:
+{
+  "content": "Hello, how are you?",
+  "messageType": "text",
+  "sender": "user"
+}
+
+Response:
+{
+  "content": "Hello! I'm here to help.",
+  "messageType": "text",
+  "sender": "bot",
+  "suggestedResponses": [
+    {
+      "text": "View Appointments",
+      "payload": "view_appointments",
+      "actionType": "button"
+    }
+  ]
+}
+            </div>
+
+            <h4>GET /api/chatbot/suggestions</h4>
+            <p>Get initial suggested responses for the widget.</p>
+            <div class="code-block">
+Response:
+{
+  "content": "What can I help you with?",
+  "suggestedResponses": [...]
+}
+            </div>
+
+            <h4>POST /api/chatbot/action</h4>
+            <p>Handle action-based responses from suggested buttons.</p>
+            <div class="code-block">
+Request:
+{ "payload": "view_appointments" }
+
+Response:
+{
+  "content": "Loading your appointments...",
+  "suggestedResponses": [...],
+  "metadata": {
+    "action": "redirect",
+    "target": "/appointments"
+  }
+}
+            </div>
+        </div>
+
+        <!-- File Comparison -->
+        <div class="demo-section">
+            <h2 class="demo-title">📊 File Structure</h2>
+
+            <h3>Before (Separate Files)</h3>
+            <div class="code-block">
+Scripts/Chat/
+├── chatbot-demo.html          (506 lines)
+├── js/
+│   └── chatbot-widget.js      (484 lines)
+└── css/
+    └── chatbot-widget.css     (460 lines)
+
+Total: 3 files, 1,450 lines
+            </div>
+
+            <h3>After (Merged File)</h3>
+            <div class="code-block">
+Scripts/Chat/
+└── chatbot-widget-complete.js (Single file with embedded CSS)
+
+Total: 1 file, easier distribution!
+✓ No need for separate CSS imports
+✓ No need for separate HTML structure
+✓ Single script tag for complete widget
+            </div>
+        </div>
+
+        <!-- Migration Guide -->
+        <div class="demo-section">
+            <h2 class="demo-title">🔄 Migration from Separate Files</h2>
+
+            <h3>Old Way (Separate Files)</h3>
+            <div class="code-block">
+&lt;link rel="stylesheet" href="/Scripts/Chat/css/chatbot-widget.css"&gt;
+&lt;script src="/Scripts/Chat/js/chatbot-widget.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  ChatBotWidget.init({ ... });
+&lt;/script&gt;
+            </div>
+
+            <h3>New Way (Single File)</h3>
+            <div class="code-block">
+&lt;script src="/Scripts/Chat/chatbot-widget-complete.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  ChatBotWidget.init({ ... });
+&lt;/script&gt;
+            </div>
+
+            <div class="highlight">
+                <strong>Note:</strong> The API is identical! Simply replace the two separate lines 
+                (CSS link + JS script) with the single merged script. No other code changes needed!
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="demo-section">
+            <p style="text-align: center; color: #666; margin: 0;">
+                © 2024 Family Portal - Reusable Chatbot Widget |
+                Built with ❤️ as a single-file, framework-agnostic solution
+            </p>
+        </div>
+    </div>
+
+    <!-- Load the complete chatbot widget -->
+    <script src="./chatbot-widget-complete.js"></script>
+
+    <script>
+        // Initialize the chatbot widget with default configuration
+        ChatBotWidget.init({
+            apiEndpoint: '/api/chatbot',
+            position: 'bottom-right',
+            theme: 'light',
+            title: 'Family Portal Assistant',
+            subtitle: 'How can we help?'
+        });
+
+        // Theme switching
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const theme = this.dataset.theme;
+                document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Recreate widget with new theme
+                ChatBotWidget.destroy();
+                ChatBotWidget.init({
+                    apiEndpoint: '/api/chatbot',
+                    position: 'bottom-right',
+                    theme: theme,
+                    title: 'Family Portal Assistant',
+                    subtitle: 'How can we help?'
+                });
+                ChatBotWidget.open();
+            });
+        });
+
+        // Widget controls
+        function openWidget() {
+            ChatBotWidget.open();
+        }
+
+        function closeWidget() {
+            ChatBotWidget.close();
+        }
+
+        function clearMessages() {
+            ChatBotWidget.clearMessages();
+        }
+
+        function resetWidget() {
+            ChatBotWidget.destroy();
+            ChatBotWidget.init({
+                apiEndpoint: '/api/chatbot',
+                position: 'bottom-right',
+                theme: 'light',
+                title: 'Family Portal Assistant',
+                subtitle: 'How can we help?'
+            });
+        }
+
+        function relocateWidget(position) {
+            ChatBotWidget.destroy();
+            ChatBotWidget.init({
+                apiEndpoint: '/api/chatbot',
+                position: position,
+                theme: 'light',
+                title: 'Family Portal Assistant',
+                subtitle: 'How can we help?'
+            });
+            ChatBotWidget.open();
+        }
+    </script>
+</body>
+</html>
