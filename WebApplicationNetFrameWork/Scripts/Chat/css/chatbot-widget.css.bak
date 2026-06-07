@@ -6,12 +6,12 @@
 
 :root {
     /* Default theme colors */
-    --chatbot-primary-color: #007bff;
+    --chatbot-primary-color: #7F00FF;
     --chatbot-secondary-color: #6c757d;
     --chatbot-background: #ffffff;
     --chatbot-text-color: #333333;
     --chatbot-bot-message-bg: #f0f0f0;
-    --chatbot-user-message-bg: #007bff;
+    --chatbot-user-message-bg: #7F00FF;
     --chatbot-border-color: #ddd;
     --chatbot-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --chatbot-animation-duration: 0.3s;
